@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiliam Silva — Engenheiro Civil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark:      #2b2b2b;
+  --dark-mid:  #333;
+  --orange:    #e8631a;
+  --orange-lt: #f07a35;
+  --offwhite:  #f5f4f2;
+  --white:     #ffffff;
+  --gray-line: #dddbd8;
+  --gray-txt:  #888480;
+  --text:      #1e1e1e;
+  --text-mid:  #555;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--offwhite);color:var(--text);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 60px;
+  background:var(--dark);
+  border-bottom:2px solid var(--orange);
+}
+.nav-logo{display:flex;align-items:center;gap:16px;text-decoration:none}
+.logo-ring{
+  width:42px;height:42px;border:1.5px solid rgba(255,255,255,.55);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  position:relative;flex-shrink:0;
+}
+.logo-ring::after{
+  content:'';position:absolute;top:-1px;right:-2px;
+  width:12px;height:12px;background:var(--orange);border-radius:50%;
+  border:2px solid var(--dark);
+}
+.logo-ws{font-size:15px;font-weight:800;color:var(--white);letter-spacing:-1px;line-height:1}
+.logo-ws sub{font-size:11px;font-weight:700;color:var(--orange);vertical-align:sub;letter-spacing:0}
+.logo-txt strong{display:block;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white)}
+.logo-txt small{font-size:9px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{background:var(--orange)!important;color:var(--white)!important;padding:9px 22px;border-radius:2px}
+.nav-cta:hover{background:var(--orange-lt)!important}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:42% 58%;
+  padding-top:68px;
+  position:relative;overflow:hidden;
+}
+.hero-dark{
+  background:var(--dark);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 60px 80px 72px;
+  position:relative;z-index:2;
+}
+.hero-dark::after{
+  content:'';
+  position:absolute;top:0;bottom:0;right:-52px;width:100px;
+  background:var(--dark);
+  clip-path:polygon(0 0,44% 0,100% 100%,0 100%);
+  z-index:3;
+}
+.hero-cut-line{
+  position:absolute;top:0;bottom:0;right:-52px;
+  width:6px;background:var(--orange);
+  transform:skewX(-4.5deg);transform-origin:top;
+  z-index:5;
+}
+.hl-logo{display:flex;align-items:center;gap:24px;margin-bottom:52px}
+.hl-ring{
+  width:90px;height:90px;
+  border:2px solid rgba(255,255,255,.45);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;flex-shrink:0;
+}
+.hl-inner{position:relative;line-height:1}
+.hl-w{font-size:40px;font-weight:800;color:var(--white);letter-spacing:-3px}
+.hl-s{position:absolute;bottom:-8px;right:-12px;font-size:20px;font-weight:700;color:var(--orange)}
+.hl-name{font-size:clamp(18px,2.4vw,26px);font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--white);line-height:1.1}
+.hl-sub{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.38);font-weight:400;margin-top:8px}
+.hero-vdiv{width:2px;height:72px;background:rgba(255,255,255,.12);margin-bottom:36px}
+.hero-desc-dark{font-size:13px;line-height:1.8;color:rgba(255,255,255,.48);font-weight:300;max-width:340px;margin-bottom:44px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-or{background:var(--orange);color:var(--white);text-decoration:none;padding:14px 32px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:all .2s}
+.btn-or:hover{background:var(--orange-lt);transform:translateY(-2px)}
+.btn-gh{color:rgba(255,255,255,.7);text-decoration:none;padding:14px 32px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,.18);border-radius:2px;transition:all .2s}
+.btn-gh:hover{border-color:var(--orange);color:var(--orange)}
+
+.hero-light{
+  background:var(--offwhite);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 80px 80px 100px;
+  position:relative;overflow:hidden;
+}
+.hero-wm{
+  position:absolute;right:-50px;top:50%;transform:translateY(-50%);
+  font-size:400px;font-weight:800;
+  color:rgba(0,0,0,.04);letter-spacing:-20px;line-height:1;
+  user-select:none;pointer-events:none;
+}
+.hero-phrase{position:relative;z-index:1;margin-bottom:24px}
+.hero-phrase p{font-size:clamp(52px,7vw,84px);font-weight:800;line-height:1.0;color:var(--text);letter-spacing:-3px}
+.hero-phrase .hl{color:var(--orange)}
+.hero-tagline{font-size:15px;line-height:1.75;color:var(--gray-txt);font-weight:400;max-width:400px;margin-bottom:24px;position:relative;z-index:1}
+.hero-rule{width:44px;height:2px;background:var(--orange);margin-bottom:24px;position:relative;z-index:1}
+.hero-cr{display:flex;align-items:center;flex-wrap:wrap;gap:0;position:relative;z-index:1}
+.hcr{display:flex;align-items:center;gap:8px;padding-right:20px;margin-right:20px;border-right:1px solid var(--gray-line);font-size:12px;color:var(--text-mid);font-weight:500}
+.hcr:last-child{border-right:none;margin-right:0;padding-right:0}
+.hcr-ic{color:var(--orange);font-size:14px}
+
+/* ── STATS BAR ── */
+.stats-bar{background:var(--dark);display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--orange)}
+.sb{padding:30px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.06);transition:background .2s}
+.sb:last-child{border-right:none}
+.sb:hover{background:rgba(255,255,255,.04)}
+.sb-n{display:block;font-size:40px;font-weight:800;color:var(--orange);line-height:1;letter-spacing:-1px}
+.sb-l{display:block;font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:6px}
+
+/* ── SECTION COMMONS ── */
+.sec-tag{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.sec-tag::before{content:'';width:28px;height:2px;background:var(--orange);display:block;flex-shrink:0}
+.sec-title{font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1;letter-spacing:-1px;color:var(--text);margin-bottom:16px}
+.sec-title.lt{color:var(--white)}
+.ac{color:var(--orange)}
+
+/* ── SOBRE — com foto ── */
+#sobre{
+  background:var(--offwhite);
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+  padding:100px 72px;
+}
+.sb-txt p{font-size:16px;line-height:1.8;color:var(--text-mid);font-weight:300;margin-bottom:18px}
+.sb-txt p strong{color:var(--text);font-weight:700}
+.sb-creds{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
+.cred{background:var(--white);border-left:3px solid var(--orange);padding:14px 16px}
+.cred strong{display:block;font-size:12px;font-weight:700;color:var(--text)}
+.cred span{font-size:11px;color:var(--gray-txt)}
+
+/* painel direito: foto + stats */
+.sobre-right{}
+
+.foto-perfil-wrap{
+  position:relative;
+  margin-bottom:0;
+  overflow:hidden;
+}
+.foto-perfil-wrap img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  filter:grayscale(8%);
+}
+/* barra laranja na lateral da foto */
+.foto-perfil-wrap::before{
+  content:'';
+  position:absolute;top:0;left:0;bottom:0;
+  width:4px;
+  background:var(--orange);
+  z-index:2;
+}
+/* sobreposição com nome sobre a foto — badge profissional */
+.foto-badge{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  background:linear-gradient(to top, rgba(43,43,43,0.92) 0%, rgba(43,43,43,0.5) 60%, transparent 100%);
+  padding:28px 24px 20px;
+  z-index:3;
+}
+.foto-badge strong{
+  display:block;
+  font-size:16px;font-weight:700;
+  color:var(--white);letter-spacing:1px;
+  text-transform:uppercase;
+}
+.foto-badge span{
+  font-size:11px;font-weight:400;
+  color:var(--orange);letter-spacing:3px;
+  text-transform:uppercase;margin-top:4px;display:block;
+}
+
+.sb-panel{background:var(--dark);position:relative;overflow:hidden}
+.sb-panel::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(232,99,26,.08)}
+.sp-top{padding:40px 44px;border-bottom:1px solid rgba(255,255,255,.06)}
+.sp-big{font-size:72px;font-weight:800;color:var(--orange);letter-spacing:-4px;line-height:1;display:block}
+.sp-lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.42);margin-top:4px;font-weight:300;display:block}
+.sp-g{display:grid;grid-template-columns:1fr 1fr}
+.sp-c{padding:22px 28px;border-right:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.sp-c:nth-child(2){border-right:none}
+.sp-c:nth-child(3),.sp-c:nth-child(4){border-bottom:none}
+.sp-c:nth-child(4){border-right:none}
+.sp-n{font-size:24px;font-weight:800;color:var(--white);display:block;letter-spacing:-1px}
+.sp-t{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:3px;display:block}
+
+/* ── SERVIÇOS ── */
+#servicos{background:var(--white);padding:100px 72px}
+.svc-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px}
+.svc-intro{font-size:15px;line-height:1.7;color:var(--text-mid);font-weight:300;max-width:340px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.svc-card{background:var(--offwhite);padding:40px 32px;border-top:3px solid transparent;transition:all .25s;cursor:default}
+.svc-card:hover{background:var(--dark);border-top-color:var(--orange)}
+.svc-card:hover .sv-n{color:rgba(232,99,26,.2)}
+.svc-card:hover .sv-t{color:var(--white)}
+.svc-card:hover .sv-d{color:rgba(255,255,255,.46)}
+.sv-n{font-size:52px;font-weight:800;color:var(--gray-line);line-height:1;margin-bottom:18px;transition:color .25s;letter-spacing:-2px}
+.sv-t{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text);margin-bottom:10px;transition:color .25s}
+.sv-d{font-size:13px;line-height:1.7;color:var(--gray-txt);font-weight:300;transition:color .25s}
+
+/* ── EXPERIÊNCIA ── */
+#experiencia{background:var(--dark);padding:100px 72px;position:relative;overflow:hidden}
+#experiencia::after{content:'WS';position:absolute;right:-30px;bottom:-80px;font-size:500px;font-weight:800;color:rgba(255,255,255,.02);line-height:1;letter-spacing:-20px;user-select:none}
+.exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px}
+.exp-card{background:rgba(255,255,255,.04);border-top:2px solid rgba(232,99,26,.28);padding:36px 28px;transition:background .2s}
+.exp-card:hover{background:rgba(255,255,255,.07)}
+.exp-ic{font-size:28px;margin-bottom:18px;display:block}
+.exp-card h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:10px}
+.exp-card p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.48);font-weight:300}
+
+/* ── PORTFÓLIO ── */
+#portfolio{background:var(--offwhite);padding:100px 72px}
+.port-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.port-card{background:var(--dark);padding:40px 28px 32px;position:relative;overflow:hidden;transition:transform .2s}
+.port-card:hover{transform:translateY(-5px)}
+.port-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--orange)}
+.pt-ic{font-size:38px;margin-bottom:22px;display:block}
+.pt-cat{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;font-weight:600}
+.pt-ttl{font-size:18px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.4px;margin-bottom:10px}
+.pt-dsc{font-size:13px;line-height:1.65;color:rgba(255,255,255,.42);font-weight:300}
+
+/* ── FORMAÇÃO ── */
+#formacao{background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding:100px 72px}
+.tl{margin-top:36px;display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--gray-line)}
+.tl-yr{font-size:10px;color:var(--orange);font-weight:700;letter-spacing:2px;padding-top:4px}
+.tl-badge{display:inline-block;font-size:9px;letter-spacing:2px;text-transform:uppercase;background:var(--orange);color:var(--white);padding:2px 8px;border-radius:1px;margin-bottom:6px;font-weight:700}
+.tl-c h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.tl-c p{font-size:13px;color:var(--gray-txt);font-weight:300}
+.form-panel{background:var(--dark);padding:44px 40px}
+.form-panel h3{font-size:20px;font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:26px;border-bottom:2px solid var(--orange);padding-bottom:14px;letter-spacing:.4px}
+.sp-list{list-style:none;display:flex;flex-direction:column}
+.sp-list li{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:flex-start;gap:14px}
+.sp-dot{width:5px;height:5px;background:var(--orange);border-radius:50%;flex-shrink:0;margin-top:8px}
+.sp-list li strong{color:var(--white);font-weight:700;font-size:14px;display:block}
+.sp-list li span{color:rgba(255,255,255,.46);font-size:13px;font-weight:300}
+
+/* ── DIFERENCIAIS ── */
+#diferenciais{background:var(--offwhite);padding:80px 72px}
+.diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:52px}
+.diff-card{background:var(--white);padding:36px 28px;border-top:3px solid var(--gray-line);transition:border-color .2s}
+.diff-card:hover{border-top-color:var(--orange)}
+.di-ic{font-size:28px;margin-bottom:14px;display:block}
+.diff-card h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text);margin-bottom:10px}
+.diff-card p{font-size:13px;line-height:1.65;color:var(--gray-txt);font-weight:300}
+
+/* ── CONTATO ── */
+#contato{display:grid;grid-template-columns:42% 58%;min-height:520px}
+.contato-dark{
+  background:var(--dark);padding:80px 56px 80px 72px;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.contato-dark::after{
+  content:'';position:absolute;top:0;bottom:0;right:-52px;width:100px;
+  background:var(--dark);clip-path:polygon(0 0,44% 0,100% 100%,0 100%);z-index:2;
+}
+.cd-cut{position:absolute;top:0;bottom:0;right:-52px;width:6px;background:var(--orange);transform:skewX(-4.5deg);z-index:5}
+.contato-dark .sec-tag{color:var(--orange)}
+.c-headline{font-size:15px;line-height:1.75;color:rgba(255,255,255,.55);font-weight:300;margin:16px 0 32px;border-left:3px solid var(--orange);padding-left:18px}
+.c-links{display:flex;flex-direction:column;gap:10px;position:relative;z-index:3}
+.c-link{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--white);padding:16px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:2px;transition:all .2s}
+.c-link:hover{background:var(--orange);border-color:var(--orange);transform:translateX(4px)}
+.c-ic{width:38px;height:38px;background:rgba(255,255,255,.07);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.c-link:hover .c-ic{background:rgba(255,255,255,.18)}
+.c-info strong{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:2px}
+.c-link:hover .c-info strong{color:rgba(255,255,255,.75)}
+.c-info span{font-size:13px}
+.contato-light{
+  background:var(--offwhite);padding:80px 72px 80px 96px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.contato-light::after{content:'WS';position:absolute;right:-50px;top:50%;transform:translateY(-50%);font-size:340px;font-weight:800;color:rgba(0,0,0,.03);line-height:1;letter-spacing:-15px;user-select:none;pointer-events:none}
+.cf{position:relative;z-index:1}
+.cf h3{font-size:21px;font-weight:800;text-transform:uppercase;color:var(--text);letter-spacing:.4px;margin-bottom:8px}
+.cf-rule{width:40px;height:2px;background:var(--orange);margin-bottom:22px}
+.cf-note{font-size:14px;line-height:1.7;color:var(--gray-txt);font-weight:300;margin-bottom:24px}
+.cf-steps{list-style:none;display:flex;flex-direction:column;gap:10px}
+.cf-steps li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-mid);font-weight:400}
+.cf-steps li::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0}
+.cf-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:28px;background:var(--orange);color:var(--white);text-decoration:none;padding:16px 32px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;width:100%;transition:all .2s}
+.cf-cta:hover{background:var(--orange-lt);transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{display:grid;grid-template-columns:42% 58%;border-top:3px solid var(--orange)}
+.ft-dark{background:var(--dark);padding:28px 56px 28px 72px;display:flex;align-items:center;gap:18px}
+.ft-ring{width:38px;height:38px;border:1.5px solid rgba(255,255,255,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:800;color:var(--white);position:relative}
+.ft-ring::after{content:'';position:absolute;top:-1px;right:-2px;width:10px;height:10px;background:var(--orange);border-radius:50%;border:2px solid var(--dark)}
+.ft-name strong{display:block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white)}
+.ft-name span{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:1px}
+.ft-light{background:var(--offwhite);padding:28px 72px 28px 96px;display:flex;align-items:center;justify-content:space-between}
+.ft-motto{font-size:20px;font-weight:800;color:rgba(0,0,0,.1);letter-spacing:-1px}
+.ft-motto em{color:var(--orange);font-style:normal}
+.ft-crea{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-txt)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  #hero,#contato,footer{grid-template-columns:1fr}
+  .hero-dark::after,.hero-cut-line,.contato-dark::after,.cd-cut{display:none}
+  .hero-dark{padding:100px 28px 52px}
+  .hero-light{padding:48px 28px 72px}
+  .hero-wm,.contato-light::after{display:none}
+  #sobre{grid-template-columns:1fr;gap:36px;padding:64px 28px}
+  #formacao{grid-template-columns:1fr;gap:36px;padding:64px 28px}
+  #servicos,#portfolio,#experiencia,#diferenciais{padding:64px 28px}
+  .svc-grid,.exp-grid,.port-grid,.diff-grid{grid-template-columns:1fr 1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .svc-hdr{flex-direction:column;align-items:flex-start;gap:16px}
+  .contato-dark{padding:60px 28px}
+  .contato-light{padding:52px 28px}
+  .ft-light,.ft-dark{padding:24px 28px}
+  .ft-light{flex-direction:column;gap:8px;text-align:center}
+  .foto-perfil-wrap img{height:300px}
+}
+@media(max-width:600px){
+  .svc-grid,.port-grid,.exp-grid,.diff-grid{grid-template-columns:1fr}
+  .sb-creds{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-ring">
+      <span class="logo-ws">W<sub>s</sub></span>
+    </div>
+    <div class="logo-txt">
+      <strong>wiliamsilva</strong>
+      <small>Engenheiro Civil</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#contato" class="nav-cta">Solicitar Orçamento</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-dark">
+    <div class="hero-cut-line"></div>
+    <div class="hl-logo">
+      <div class="hl-ring">
+        <div class="hl-inner">
+          <span class="hl-w">W<span class="hl-s">s</span></span>
+        </div>
+      </div>
+      <div>
+        <div class="hl-name">wiliamsilva</div>
+        <div class="hl-sub">ENGENHEIRO CIVIL</div>
+      </div>
+    </div>
+    <div class="hero-vdiv"></div>
+    <p class="hero-desc-dark">
+      Engenheiro Civil com CREA/PR ativo, Mestre em Engenharia de Produção e Professor Universitário. Mais de 800 projetos realizados no Brasil e exterior.
+    </p>
+    <div class="hero-btns">
+      <a href="#contato" class="btn-or">Solicitar Orçamento</a>
+      <a href="#servicos" class="btn-gh">Ver Serviços</a>
+    </div>
+  </div>
+
+  <div class="hero-light">
+    <div class="hero-wm">WS</div>
+    <div class="hero-phrase">
+      <p>O simples</p>
+      <p><span class="hl">bem</span> feito.</p>
+    </div>
+    <p class="hero-tagline"></p>
+    <div class="hero-rule"></div>
+    <div class="hero-cr">
+      <div class="hcr"><span class="hcr-ic">🌐</span><span>linktr.ee/wiliamsilva</span></div>
+      <div class="hcr"><span class="hcr-ic">📞</span><span>41.9.9943-2773</span></div>
+      <div class="hcr"><span class="hcr-ic">✉️</span><span>wiliamdeassis@gmail.com</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="sb"><span class="sb-n">+800</span><span class="sb-l">Projetos</span></div>
+  <div class="sb"><span class="sb-n">+15</span><span class="sb-l">Anos de Atuação</span></div>
+  <div class="sb"><span class="sb-n">MSc</span><span class="sb-l">Mestre pela UFPR</span></div>
+  <div class="sb"><span class="sb-n">Prof</span><span class="sb-l">Docente Universitário</span></div>
+</div>
+
+<!-- SOBRE — com foto -->
+<section id="sobre">
+  <div class="sb-txt">
+    <div class="sec-tag">Sobre</div>
+    <h2 class="sec-title">O simples<br><span class="ac">bem feito.</span></h2>
+    <p>Sou <strong>Wiliam de Assis Silva</strong>, Engenheiro Civil e Mestre em Engenharia de Produção pela UFPR. Atuo como professor universitário e consultor técnico, integrando rigor acadêmico à prática real das obras.</p>
+    <p>Com mais de <strong>800 projetos realizados</strong> desde 2010, minha atuação abrange residências de alto padrão, edifícios multifamiliares, obras comerciais e industriais — sempre com clareza técnica e compromisso com o resultado.</p>
+    <p>Acredito que <strong>a melhor engenharia é a que funciona</strong>: segura, econômica, executável e entendida por todos os envolvidos na obra.</p>
+    <div class="sb-creds">
+      <div class="cred"><strong>Mestre pela UFPR</strong><span>Engenharia de Produção</span></div>
+      <div class="cred"><strong>Professor Universitário</strong><span>Docente desde 2018</span></div>
+      <div class="cred"><strong>CREAPR 112.973/D</strong><span>Responsabilidade Técnica</span></div>
+      <div class="cred"><strong>Gestor de Projetos</strong><span>Especialização PUC/PR</span></div>
+    </div>
+  </div>
+
+  <!-- LADO DIREITO: foto + painel de números -->
+  <div class="sobre-right">
+    <div class="foto-perfil-wrap">
+      <img src="img/perfil.jpg" alt="Wiliam de Assis Silva — Engenheiro Civil">
+      <div class="foto-badge">
+        <strong>Wiliam de Assis Silva</strong>
+        <span>Engenheiro Civil · Mestre · Professor</span>
+      </div>
+    </div>
+
+    <div class="sb-panel">
+      <div class="sp-top">
+        <span class="sp-big">+800</span>
+        <span class="sp-lbl">projetos realizados</span>
+      </div>
+      <div class="sp-g">
+        <div class="sp-c"><span class="sp-n">+15</span><span class="sp-t">Anos de experiência</span></div>
+        <div class="sp-c"><span class="sp-n">+8</span><span class="sp-t">Anos como docente</span></div>
+        <div class="sp-c"><span class="sp-n">MSc</span><span class="sp-t">Mestre UFPR</span></div>
+        <div class="sp-c"><span class="sp-n">CREA</span><span class="sp-t">PR 112973/D</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="svc-hdr">
+    <div>
+      <div class="sec-tag">Serviços</div>
+      <h2 class="sec-title">O que <span class="ac">faço</span></h2>
+    </div>
+    <p class="svc-intro">Soluções técnicas completas, do projeto ao laudo, com responsabilidade técnica e comunicação direta.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="sv-n">01</div><div class="sv-t">Projetos Estruturais</div><p class="sv-d">Dimensionamento completo em concreto armado, estruturas metálicas e de madeira. Memória de cálculo e detalhamento conforme ABNT.</p></div>
+    <div class="svc-card"><div class="sv-n">02</div><div class="sv-t">Fundações</div><p class="sv-d">Análise geotécnica e dimensionamento de fundações superficiais e profundas. Soluções compatíveis com o terreno e orçamento.</p></div>
+    <div class="svc-card"><div class="sv-n">03</div><div class="sv-t">Projetos Complementares</div><p class="sv-d">Projetos hidráulicos, elétricos e complementares. Compatibilização e detalhamento integrado com o arquitetônico.</p></div>
+    <div class="svc-card"><div class="sv-n">04</div><div class="sv-t">Laudos e Perícias</div><p class="sv-d">Laudos de vistoria, análise de patologias e parecer técnico. Documentação com validade legal.</p></div>
+    <div class="svc-card"><div class="sv-n">05</div><div class="sv-t">Regularização de Imóveis</div><p class="sv-d">Habite-se, averbação, registro e regularização junto à prefeitura e cartório. Da documentação ao protocolo final.</p></div>
+    <div class="svc-card"><div class="sv-n">06</div><div class="sv-t">Gerenciamento de Obras</div><p class="sv-d">Planejamento, cronograma, controle de custos e fiscalização técnica. Garantia de fidelidade ao projeto na execução.</p></div>
+    <div class="svc-card"><div class="sv-n">07</div><div class="sv-t">Consultoria Técnica</div><p class="sv-d">Parecer especializado para tomada de decisão: viabilidade, revisão de projetos e análise normativa.</p></div>
+    <div class="svc-card"><div class="sv-n">08</div><div class="sv-t">Retrofit e Patologia</div><p class="sv-d">Diagnóstico e reabilitação de edificações com fissuras, infiltrações e corrosão. Soluções para recuperar o imóvel.</p></div>
+    <div class="svc-card"><div class="sv-n">09</div><div class="sv-t">Cursos e Produtos Digitais</div><p class="sv-d">Conteúdo técnico aplicado: planilhas, templates, materiais didáticos e formações para engenheiros e estudantes.</p></div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+  <div class="sec-tag">Trajetória</div>
+  <h2 class="sec-title lt">Experiência <span class="ac">comprovada</span></h2>
+  <div class="exp-grid">
+    <div class="exp-card"><span class="exp-ic">🏠</span><h3>Alto Padrão</h3><p>Residências sofisticadas com integração de ambientes, luminotécnica e coordenação de projetos complementares.</p></div>
+    <div class="exp-card"><span class="exp-ic">🏢</span><h3>Edifícios Multifamiliares</h3><p>Projetos estruturais para edifícios de até 4 pavimentos, domínio completo de concreto armado e detalhamento executivo.</p></div>
+    <div class="exp-card"><span class="exp-ic">🏨</span><h3>Hotéis e Eventos</h3><p>Projetos para hotelaria e grandes salões: estruturas robustas, vãos generosos e compatibilização de instalações.</p></div>
+    <div class="exp-card"><span class="exp-ic">🏭</span><h3>Comercial e Industrial</h3><p>Galpões, pisos industriais e salas comerciais. Experiência com estrutura metálica e pré-moldados.</p></div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio">
+  <div class="sec-tag">Portfólio</div>
+  <h2 class="sec-title">Áreas de <span class="ac">atuação</span></h2>
+  <div class="port-grid">
+    <div class="port-card"><span class="pt-ic">🏠</span><div class="pt-cat">Residencial</div><div class="pt-ttl">Residências de Alto Padrão</div><p class="pt-dsc">Projetos personalizados com volumetria arquitetônica e soluções estruturais eficientes.</p></div>
+    <div class="port-card"><span class="pt-ic">🏗️</span><div class="pt-cat">Multifamiliar</div><div class="pt-ttl">Edifícios até 4 Pavimentos</div><p class="pt-dsc">Estruturas completas em concreto armado, dimensionamento e acompanhamento da execução.</p></div>
+    <div class="port-card"><span class="pt-ic">🏨</span><div class="pt-cat">Hotelaria</div><div class="pt-ttl">Hotéis e Salões de Eventos</div><p class="pt-dsc">Projetos para ocupação intensa, vãos livres e instalações de alta complexidade.</p></div>
+    <div class="port-card"><span class="pt-ic">🏪</span><div class="pt-cat">Comercial e Industrial</div><div class="pt-ttl">Obras e Galpões</div><p class="pt-dsc">Estruturas metálicas e mistas, fundações especiais e grandes vãos industriais.</p></div>
+  </div>
+</section>
+
+<!-- FORMAÇÃO -->
+<section id="formacao">
+  <div>
+    <div class="sec-tag">Formação</div>
+    <h2 class="sec-title">Base <span class="ac">acadêmica</span></h2>
+    <div class="tl">
+      <div class="tl-item"><div class="tl-yr"></div><div class="tl-c"><span class="tl-badge">Pós-graduação</span><h4>Retrofit e Patologia das Construções</h4><p>Diagnóstico e reabilitação de edificações.</p></div></div>
+      <div class="tl-item"><div class="tl-yr"></div><div class="tl-c"><span class="tl-badge">Especialização</span><h4>Criatividade e Inovação</h4><p>Formação aplicada à gestão e inovação em projetos.</p></div></div>
+      <div class="tl-item"><div class="tl-yr"></div><div class="tl-c"><span class="tl-badge">Especialização</span><h4>Gestão de Projetos em Engenharia</h4><p>PUC/PR — Planejamento, cronograma e controle técnico.</p></div></div>
+      <div class="tl-item"><div class="tl-yr"></div><div class="tl-c"><span class="tl-badge">Mestrado</span><h4>Mestre em Engenharia de Produção</h4><p>Universidade Federal do Paraná (UFPR).</p></div></div>
+      <div class="tl-item"><div class="tl-yr"></div><div class="tl-c"><span class="tl-badge">Graduação</span><h4>Engenharia Civil</h4><p>Universidade Tecnológica Federal do Paraná (UTFPR).</p></div></div>
+    </div>
+  </div>
+  <div class="form-panel">
+    <h3>Atuação Acadêmica</h3>
+    <ul class="sp-list">
+      <li><div class="sp-dot"></div><div><strong>Professor Universitário</strong><span>Docência ativa em cursos de Engenharia desde 2018.</span></div></li>
+      <li><div class="sp-dot"></div><div><strong>Produtor de Conteúdo Técnico</strong><span>Cursos, planilhas, templates e formações para a área.</span></div></li>
+      <li><div class="sp-dot"></div><div><strong>Pesquisador Aplicado</strong><span>Produção acadêmica em gestão e inovação em obras.</span></div></li>
+      <li><div class="sp-dot"></div><div><strong>Consultor e Palestrante</strong><span>Formação de equipes técnicas e boas práticas de engenharia.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="sec-tag">Por que escolher</div>
+  <h2 class="sec-title">Compromisso com <span class="ac">qualidade</span></h2>
+  <div class="diff-grid">
+    <div class="diff-card"><span class="di-ic">🎯</span><h4>Projetos Econômicos</h4><p>Otimização de materiais sem comprometer a segurança. Soluções que reduzem custos e evitam desperdícios.</p></div>
+    <div class="diff-card"><span class="di-ic">🛡️</span><h4>Segurança Garantida</h4><p>Rigor técnico com cumprimento estrito das normas ABNT. Integridade estrutural em cada projeto.</p></div>
+    <div class="diff-card"><span class="di-ic">💬</span><h4>Clareza Técnica</h4><p>Comunicação direta e transparente: você entende cada decisão técnica tomada no projeto.</p></div>
+    <div class="diff-card"><span class="di-ic">⏱️</span><h4>Prazos Cumpridos</h4><p>Comprometimento com o cronograma. Planejamento real para evitar atrasos na execução.</p></div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-dark">
+    <div class="cd-cut"></div>
+    <div class="sec-tag">Contato</div>
+    <h2 class="sec-title lt">Vamos tirar<br>seu projeto <span class="ac">do papel?</span></h2>
+    <p class="c-headline">Fale com um engenheiro e transforme seu projeto em realidade.</p>
+    <div class="c-links">
+      <a href="https://wa.me/5541999432773" class="c-link" target="_blank">
+        <div class="c-ic">📱</div>
+        <div class="c-info"><strong>WhatsApp</strong><span>(41) 99943-2773</span></div>
+      </a>
+      <a href="mailto:wiliamdeassis@gmail.com" class="c-link">
+        <div class="c-ic">✉️</div>
+        <div class="c-info"><strong>E-mail</strong><span>wiliamdeassis@gmail.com</span></div>
+      </a>
+      <a href="https://linkedin.com/in/wiliamsilva" class="c-link" target="_blank">
+        <div class="c-ic">💼</div>
+        <div class="c-info"><strong>LinkedIn</strong><span>linkedin.com/in/wiliamsilva</span></div>
+      </a>
+      <a href="https://linktr.ee/wiliamsilva" class="c-link" target="_blank">
+        <div class="c-ic">🔗</div>
+        <div class="c-info"><strong>Linktree</strong><span>linktr.ee/wiliamsilva</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="contato-light">
+    <div class="cf">
+      <h3>Como funciona o atendimento</h3>
+      <div class="cf-rule"></div>
+      <p class="cf-note">Atendimento direto com o engenheiro responsável. Sem intermediários, sem burocracia.</p>
+      <ul class="cf-steps">
+        <li>Primeiro contato via WhatsApp ou e-mail</li>
+        <li>Reunião inicial para entender as necessidades e o terreno</li>
+        <li>Apresentação de proposta técnica e comercial</li>
+        <li>Desenvolvimento do projeto com comunicação constante</li>
+        <li>Entrega com apresentação clara de todas as soluções</li>
+        <li>Suporte técnico durante a execução da obra</li>
+      </ul>
+      <a href="https://wa.me/5541999432773" class="cf-cta" target="_blank">Solicitar Orçamento → WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-dark">
+    <div class="ft-ring">Ws</div>
+    <div class="ft-name">
+      <strong>wiliamsilva</strong>
+      <span>Engenheiro Civil · CREA/PR 112973/D · wiliamdeassis@gmail.com</span>
+    </div>
+  </div>
+  <div class="ft-light">
+    <div class="ft-motto">O simples <em>bem</em> feito.</div>
+     </div>
+</footer>
+
+</body>
+</html>
