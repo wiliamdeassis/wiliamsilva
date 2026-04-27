@@ -135,7 +135,7 @@ nav{
 .sec-title.lt{color:var(--white)}
 .ac{color:var(--orange)}
 
-/* ── SOBRE — com foto ── */
+/* ── SOBRE — sem foto ── */
 #sobre{
   background:var(--offwhite);
   display:grid;grid-template-columns:1fr 1fr;
@@ -149,51 +149,10 @@ nav{
 .cred strong{display:block;font-size:12px;font-weight:700;color:var(--text)}
 .cred span{font-size:11px;color:var(--gray-txt)}
 
-/* painel direito: foto + stats */
-.sobre-right{}
+/* painel direito: só stats */
+.sobre-right{display:flex;flex-direction:column;}
 
-.foto-perfil-wrap{
-  position:relative;
-  margin-bottom:0;
-  overflow:hidden;
-}
-.foto-perfil-wrap img{
-  width:0%;
-  height:0px;
-  object-fit:cover;
-  object-position:center top;
-  display:block;
-  filter:grayscale(8%);
-}
-/* barra laranja na lateral da foto */
-.foto-perfil-wrap::before{
-  content:'';
-  position:absolute;top:0;left:0;bottom:0;
-  width:4px;
-  background:var(--orange);
-  z-index:2;
-}
-/* sobreposição com nome sobre a foto — badge profissional */
-.foto-badge{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  background:linear-gradient(to top, rgba(43,43,43,0.92) 0%, rgba(43,43,43,0.5) 60%, transparent 100%);
-  padding:28px 24px 20px;
-  z-index:3;
-}
-.foto-badge strong{
-  display:block;
-  font-size:16px;font-weight:700;
-  color:var(--white);letter-spacing:1px;
-  text-transform:uppercase;
-}
-.foto-badge span{
-  font-size:11px;font-weight:400;
-  color:var(--orange);letter-spacing:3px;
-  text-transform:uppercase;margin-top:4px;display:block;
-}
-
-.sb-panel{background:var(--dark);position:relative;overflow:hidden}
+.sb-panel{background:var(--dark);position:relative;overflow:hidden;flex:1}
 .sb-panel::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(232,99,26,.08)}
 .sp-top{padding:40px 44px;border-bottom:1px solid rgba(255,255,255,.06)}
 .sp-big{font-size:72px;font-weight:800;color:var(--orange);letter-spacing:-4px;line-height:1;display:block}
@@ -335,7 +294,6 @@ footer{display:grid;grid-template-columns:42% 58%;border-top:3px solid var(--ora
   .contato-light{padding:52px 28px}
   .ft-light,.ft-dark{padding:24px 28px}
   .ft-light{flex-direction:column;gap:8px;text-align:center}
-  .foto-perfil-wrap img{height:300px}
 }
 @media(max-width:600px){
   .svc-grid,.port-grid,.exp-grid,.diff-grid{grid-template-columns:1fr}
@@ -414,7 +372,7 @@ footer{display:grid;grid-template-columns:42% 58%;border-top:3px solid var(--ora
   <div class="sb"><span class="sb-n">Prof</span><span class="sb-l">Docente Universitário</span></div>
 </div>
 
-<!-- SOBRE — com foto -->
+<!-- SOBRE — sem foto -->
 <section id="sobre">
   <div class="sb-txt">
     <div class="sec-tag">Sobre</div>
@@ -430,14 +388,8 @@ footer{display:grid;grid-template-columns:42% 58%;border-top:3px solid var(--ora
     </div>
   </div>
 
-  <!-- LADO DIREITO: foto + painel de números -->
+  <!-- LADO DIREITO: apenas painel de números -->
   <div class="sobre-right">
-    <div class="foto-perfil-wrap">
-      <img src="img/perfil.jpg" alt="Wiliam de Assis Silva — Engenheiro Civil">
-      <div class="foto-badge">
-      </div>
-    </div>
-
     <div class="sb-panel">
       <div class="sp-top">
         <span class="sp-big">+800</span>
@@ -591,7 +543,7 @@ footer{display:grid;grid-template-columns:42% 58%;border-top:3px solid var(--ora
   </div>
   <div class="ft-light">
     <div class="ft-motto">O simples <em>bem</em> feito.</div>
-     </div>
+  </div>
 </footer>
 
 </body>
